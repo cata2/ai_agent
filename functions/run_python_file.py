@@ -39,3 +39,24 @@ def run_python_file(
 
     except Exception as e:
         return f"Error: executing Python file: {e}"
+
+schema_run_python_file = {
+    "type": "function",
+    "function": {
+        "name": "run_python_file",
+        "description": "Run a subprocces for running some python files with some timeout and caputre the stdin and stderr",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "file_path": {
+                    "type": "string",
+                    "description": "Path to a file that need to be executed",
+                },
+                "args": {
+                    "type": "array",
+                    "description": "Taking additional arguments for running python files. Arguments are string in an array",
+                }
+            },
+        },
+    },
+}

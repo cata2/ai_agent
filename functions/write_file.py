@@ -21,3 +21,25 @@ def write_file(working_directory: str, file_path: str, content: str) -> str:
     
     except Exception as e:
         return f"Error: {e}"
+
+schema_write_file = {
+    "type": "function",
+    "function": {
+        "name": "write_file",
+        "description": "Write content to a file at the specified path within the working directory. Use this when the user asks to write, save, or create a file with specific content.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "file_path": {
+                    "type": "string",
+                    "description": "Relative path to the file to write to, e.g. 'main.txt' or 'pkg/output.txt'",
+                },
+                "content": {
+                    "type": "string",
+                    "description": "The content to write into the file",
+                }
+            },
+            "required": ["file_path", "content"],
+        },
+    },
+}
